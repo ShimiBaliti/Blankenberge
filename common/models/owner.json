@@ -1,0 +1,25 @@
+{
+  "name": "Owner",
+  "plural": "Owners",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "Name": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "contactDetails": {
+      "type": "hasOne",
+      "model": "Owner",
+      "foreignKey": "contactId"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

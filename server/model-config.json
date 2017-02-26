@@ -31,5 +31,17 @@
   "Role": {
     "dataSource": "db",
     "public": false
+  },
+  "Address": {
+    "dataSource": "mysqlDs",
+    "public": false
+  },
+  "ContactDetails": {
+    "dataSource": "mysqlDs",
+    "public": false
+  },
+  "Owner": {
+    "dataSource": "mysqlDs",
+    "public": true
   }
 }

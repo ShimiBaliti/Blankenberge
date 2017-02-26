@@ -1,0 +1,28 @@
+{
+  "name": "ContactDetails",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "Phone": {
+      "type": "string"
+    },
+    "Mobile": {
+      "type": "string",
+      "required": true
+    },
+    "Fax": {
+      "type": "string"
+    },
+    "Email": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}
