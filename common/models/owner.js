@@ -5,9 +5,9 @@ module.exports = function (Owner) {
 
     Owner.disableRemoteMethodByName('prototype.__get__contactDetails');
 
-    Owner.getContactDetails = function (id, cb) {
+    Owner.getContactDetails = function (ownerId, cb) {
         var contactDetails = app.models.ContactDetails;
-        Owner.findById(id, function (err, instances) {
+        Owner.findById(ownerId, function (err, instances) {
             if (err) {
                 cb(err);
             }
@@ -25,13 +25,13 @@ module.exports = function (Owner) {
         'getContactDetails',
         {
             accepts: [
-                { arg: 'id', type: 'number', required: true, description: 'Owner Id' }
+                { arg: 'ownerId', type: 'number', required: true, description: 'Owner Id' }
             ],
             returns: {
                 arg: 'contactDetails',
                 type: 'object'
             },
-            http: { path: '/:id/contactDetails', verb: 'get' },
+            http: { path: '/:ownerId/contactDetails', verb: 'get' },
             description: "Get the owner's contact details"
         }
     );

@@ -9,8 +9,6 @@ describe('hooks', function () {
     generator.init(mysqlDs, app);
     generator.createFullOwner();
     done();
-
-
   });
 
   describe('Owner', function () {

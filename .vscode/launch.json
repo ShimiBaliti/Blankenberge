@@ -19,8 +19,7 @@
             "address": "192.168.32.20",
             "stopOnEntry": false,
             "localRoot": "${workspaceRoot}",
-    "remoteRoot": "/vagrant_data/Blankenberge"
-            
+            "remoteRoot": "/vagrant_data/Blankenberge"
         }
     ]
 }
