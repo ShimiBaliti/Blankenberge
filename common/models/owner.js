@@ -2,8 +2,9 @@
 
 module.exports = function (Owner) {
     var app = require('../../server/server.js');
+var RemoteRouting = require('loopback-remote-routing');
 
-    Owner.disableRemoteMethodByName('prototype.__get__contactDetails');
+RemoteRouting(Owner);
 
     Owner.getContactDetails = function (ownerId, cb) {
         var contactDetails = app.models.ContactDetails;
@@ -36,3 +37,18 @@ module.exports = function (Owner) {
         }
     );
 };
+
+
+// let disabledPrototypesRemoteMethods = ['patchAttributes']
+// let enabledRemoteMethods = [
+//   "create", "findById", "replaceById", "deleteById",
+//   "replaceOrCreateQuestion"
+// ]
+// Survey.sharedClass.methods().forEach(function(method) {
+//   if (enabledRemoteMethods.indexOf(method.name) == -1) {
+//     Survey.disableRemoteMethodByName(method.name);
+//   }
+//   if (disabledPrototypesRemoteMethods.indexOf(method.name) > -1) {
+//     Survey.disableRemoteMethodByName("prototype." + method.name);
+//   }
+// });
