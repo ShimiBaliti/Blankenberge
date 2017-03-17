@@ -1,6 +1,6 @@
 var assert = require('assert');
 var app = require('../server/server.js');
-var generator = require('../common/scripts/sampleDataGenerator');
+var generator = require('../common/utils/sampleDataGenerator');
 
 describe('hooks', function () {
 

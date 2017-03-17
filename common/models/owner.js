@@ -1,10 +1,15 @@
 'use strict';
 
-module.exports = function (Owner) {
-    var app = require('../../server/server.js');
+var app = require('../../server/server.js');
 var RemoteRouting = require('loopback-remote-routing');
 
-RemoteRouting(Owner);
+var whiteListRemoteRouting = ['@find', '@findById'];
+
+module.exports = function (Owner) {
+
+    RemoteRouting(Owner, {
+        only: whiteListRouting
+    })
 
     Owner.getContactDetails = function (ownerId, cb) {
         var contactDetails = app.models.ContactDetails;

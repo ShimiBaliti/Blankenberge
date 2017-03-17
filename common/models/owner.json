@@ -6,15 +6,15 @@
   "options": {
     "validateUpsert": true
   },
+  "mixins": {
+    "TimeStamp": true
+  },
   "properties": {
     "Name": {
       "type": "string",
       "required": true
     }
   },
-  "mixins": {
-      "TimeStamp" : true
-    },
   "validations": [],
   "relations": {
     "contactDetails": {

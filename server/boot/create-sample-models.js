@@ -1,5 +1,5 @@
 'use strict';
-var generator = require('../../common/scripts/sampleDataGenerator');
+var generator = require('../../common/utils/sampleDataGenerator');
 
 module.exports = function (app) {
   if (process.env.npm_lifecycle_event != "test") {
