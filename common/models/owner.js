@@ -8,7 +8,7 @@ var whiteListRemoteRouting = ['@find', '@findById'];
 module.exports = function (Owner) {
 
     RemoteRouting(Owner, {
-        only: whiteListRouting
+        only: whiteListRemoteRouting
     })
 
     Owner.getContactDetails = function (ownerId, cb) {

@@ -44,5 +44,9 @@
   "Owner": {
     "dataSource": "mysqlDs",
     "public": true
+  },
+  "serviceCategory": {
+    "dataSource": null,
+    "public": true
   }
 }

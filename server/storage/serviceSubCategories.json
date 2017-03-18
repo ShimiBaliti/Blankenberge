@@ -1,0 +1,28 @@
+{
+    "subCategories": [
+        {
+            "id": 1,
+            "name": "Nail Polish",
+            "desc": "Nail Polish",
+            "categoryId": 1
+        },
+        {
+            "id": 2,
+            "name": "Pedicure",
+            "desc": "Pedicure",
+            "categoryId": 1
+        },
+        {
+            "id": 3,
+            "name": "Massage",
+            "desc": "Back, Neck Massage",
+            "categoryId": 2
+        },
+        {
+            "id": 4,
+            "name": "Reflexology",
+            "desc": "Reflexology",
+            "categoryId": 2
+        }
+    ]
+}
