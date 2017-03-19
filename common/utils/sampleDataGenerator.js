@@ -1,3 +1,4 @@
+var loopback = require('loopback');
 
 var self = module.exports = {
 
@@ -7,6 +8,20 @@ var self = module.exports = {
     init: function (datasource, app) {
         this.dataSource = datasource;
         this.app = app;
+    },
+
+    createServiceReuqest: function () {
+        var request = this.app.models.ServiceRequest;
+        this.dataSource.automigrate('ServiceRequest', function (err) {
+            if (err) return console.log(err);
+            request.create([{
+                userId: 1,
+                serviceType: 1.1,
+                preferredTime: 'NOW',
+                preferredLocation: "NEAR_ME",
+                currentLocation: new loopback.GeoPoint({lat: 10.32424, lng: 5.84978})
+            }], function(){});
+        });
     },
 
     createFullOwner: function () {

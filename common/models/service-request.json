@@ -1,0 +1,43 @@
+{
+  "name": "ServiceRequest",
+  "plural": "ServiceRequests",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "mixins": {
+    "TimeStamp": true
+  },
+  "properties": {
+    "userId": {
+      "type": "number",
+      "required": true
+    },
+    "serviceType":{
+      "type":"number",
+      "required":true
+    },
+    "preferredTime":{
+      "type":"string",
+      "required":true
+    },
+    "preferredLocation":{
+      "type":"string",
+      "required":true
+    },
+    "currentLocation":{
+      "type":"object",
+      "required":false
+    },
+    "status":{
+      "type":"string",
+      "required":true,
+      "default":"DRAFT"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

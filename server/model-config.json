@@ -45,6 +45,10 @@
     "dataSource": "mysqlDs",
     "public": true
   },
+  "ServiceRequest": {
+    "dataSource": "mysqlDs",
+    "public": true
+  },
   "serviceCategory": {
     "dataSource": null,
     "public": true

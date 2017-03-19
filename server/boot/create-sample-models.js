@@ -6,5 +6,6 @@ module.exports = function (app) {
     var mysqlDs = app.dataSources.mysqlDs;
     generator.init(mysqlDs, app);
     generator.createFullOwner();
+    generator.createServiceReuqest();
   }
 };
