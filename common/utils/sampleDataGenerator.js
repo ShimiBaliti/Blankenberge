@@ -1,4 +1,5 @@
 var loopback = require('loopback');
+var array = require('lodash/array');
 
 var self = module.exports = {
 
@@ -10,6 +11,64 @@ var self = module.exports = {
         this.app = app;
     },
 
+    createOwnersServices: function (owners) {
+        var services = this.app.models.OwnersService;
+        var categories = this.app.models.ServiceCategory;
+
+        categories.find(function (err, instances) {
+            self.dataSource.automigrate('OwnersService', function (err) {
+                if (err) return ;
+                services.create([{
+                    ownerId: array.last(owners).id,
+                    serviceCategoryId: array.last(instances).id
+                },
+                {
+                    ownerId: array.first(owners).id,
+                    serviceCategoryId: array.first(instances).id
+                }], function(){});
+            });
+        });
+
+
+    },
+
+    createServiceCategories: function () {
+        var categories = this.app.models.ServiceCategory;
+        this.dataSource.automigrate('ServiceCategory', function (err) {
+            if (err) return console.log(err);
+            categories.create([{
+                parentCategoryId: null,
+                Name: "Beauty",
+                Description: "Everything you need before going out..."
+            },
+            {
+                parentCategoryId: null,
+                Name: "Health",
+                Description: "Everything you need to feel great..."
+            },
+            {
+                Name: "Nail Polish",
+                Description: "Nail Polish",
+                parentCategoryId: 1
+            },
+            {
+                Name: "Pedicure",
+                Description: "Pedicure",
+                parentCategoryId: 1
+            },
+            {
+                Name: "Massage",
+                Description: "Back, Neck Massage",
+                parentCategoryId: 2
+            },
+            {
+                Name: "Reflexology",
+                Description: "Reflexology",
+                parentCategoryId: 2
+            }], function () { });
+        });
+    },
+
     createServiceReuqest: function () {
         var request = this.app.models.ServiceRequest;
         this.dataSource.automigrate('ServiceRequest', function (err) {
@@ -19,8 +78,8 @@ var self = module.exports = {
                 serviceType: 1.1,
                 preferredTime: 'NOW',
                 preferredLocation: "NEAR_ME",
-                currentLocation: new loopback.GeoPoint({lat: 10.32424, lng: 5.84978})
-            }], function(){});
+                currentLocation: new loopback.GeoPoint({ lat: 10.32424, lng: 5.84978 })
+            }], function () { });
         });
     },
 
@@ -32,8 +91,9 @@ var self = module.exports = {
                     function (err) {
                         if (err) throw err;
                         self.createOwner(results,
-                            function (err) {
+                            function (err, owners) {
                                 if (err) throw err;
+                                self.createOwnersServices(owners);
                                 console.log('> models created sucessfully');
                             })
                     });
@@ -47,6 +107,11 @@ var self = module.exports = {
             ContactDetails.create([{
                 Phone: "1212-321",
                 Mobile: "222-222-222",
+                Email: 'asd@dsa.com'
+            },
+            {
+                Phone: "2222-321",
+                Mobile: "6666-222-777222",
                 Email: 'asd@dsa.com'
             }], cb);
         });
@@ -76,6 +141,12 @@ var self = module.exports = {
                 password: "123456",
                 email: "aaa@sss.com",
                 contactId: contacts[0].id
+            },
+            {
+                Name: "The 2nd best owner",
+                password: "123456789",
+                email: "a@s.com",
+                contactId: contacts[1].id
             }], cb);
         });
     },
