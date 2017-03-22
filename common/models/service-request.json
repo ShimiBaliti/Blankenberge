@@ -7,33 +7,34 @@
     "validateUpsert": true
   },
   "mixins": {
-    "TimeStamp": true
+    "TimeStamp": true,
+    "WebPush": true
   },
   "properties": {
     "userId": {
       "type": "number",
       "required": true
     },
-    "serviceType":{
-      "type":"number",
-      "required":true
+    "serviceType": {
+      "type": "number",
+      "required": true
     },
-    "preferredTime":{
-      "type":"string",
-      "required":true
+    "preferredTime": {
+      "type": "string",
+      "required": true
     },
-    "preferredLocation":{
-      "type":"string",
-      "required":true
+    "preferredLocation": {
+      "type": "string",
+      "required": true
     },
-    "currentLocation":{
-      "type":"object",
-      "required":false
+    "currentLocation": {
+      "type": "object",
+      "required": false
     },
-    "status":{
-      "type":"string",
-      "required":true,
-      "default":"DRAFT"
+    "status": {
+      "type": "string",
+      "required": true,
+      "default": "DRAFT"
     }
   },
   "validations": [],
