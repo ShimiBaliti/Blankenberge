@@ -39,7 +39,7 @@
   },
   "ContactDetails": {
     "dataSource": "mysqlDs",
-    "public": false
+    "public": true
   },
   "Owner": {
     "dataSource": "mysqlDs",
@@ -49,8 +49,12 @@
     "dataSource": "mysqlDs",
     "public": true
   },
-  "serviceCategory": {
-    "dataSource": null,
+  "ServiceCategory": {
+    "dataSource": "mysqlDs",
     "public": true
+  },
+  "OwnersService": {
+    "dataSource": "mysqlDs",
+    "public": false
   }
 }

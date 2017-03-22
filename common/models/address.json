@@ -27,15 +27,14 @@
     "Postcode": {
       "type": "string",
       "required": true
+    },
+    "contactId": {
+      "type": "number",
+      "required": true
     }
   },
   "validations": [],
   "relations": {
-    "contactDetails": {
-      "type": "belongsTo",
-      "model": "ContactDetails",
-      "foreignKey": "contactId"
-    }
   },
   "acls": [],
   "methods": {}

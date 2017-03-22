@@ -1,9 +1,33 @@
 {
-  "name": "serviceCategory",
-  "base": "Model",
-  "properties": {},
+  "name": "ServiceCategory",
+  "plural": "ServiceCategories",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "parentCategoryId": {
+      "type": "number"
+    },
+    "Name": {
+      "type": "string",
+      "required": true
+    },
+    "Description": {
+      "type": "string"
+    }
+  },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "owners": {
+      "type": "hasMany",
+      "model": "Owner",
+      "foreignKey": "serviceCategoryId",
+      "through": "OwnersService",
+      "keyThrough": "ownerId"
+    }
+  },
   "acls": [],
   "methods": {}
 }

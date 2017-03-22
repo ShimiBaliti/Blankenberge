@@ -1,0 +1,25 @@
+{
+  "name": "OwnersService",
+  "plural": "OwnerServices",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {},
+  "validations": [],
+  "relations": {
+    "owner": {
+      "type": "belongsTo",
+      "model": "Owner",
+      "foreignKey": "ownerId"
+    },
+    "serviceCategory": {
+      "type": "belongsTo",
+      "model": "ServiceCategory",
+      "foreignKey": "serviceCategoryId"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

@@ -13,14 +13,20 @@
     "Name": {
       "type": "string",
       "required": true
+    },
+    "contactId":{
+      "type":"number",
+      "required":false
     }
   },
   "validations": [],
   "relations": {
-    "contactDetails": {
-      "type": "hasOne",
-      "model": "Owner",
-      "foreignKey": "contactId"
+    "serviceCategories": {
+      "type": "hasMany",
+      "model": "ServiceCategory",
+      "foreignKey": "ownerId",
+      "through": "OwnersService",
+      "keyThrough": "serviceCategoryId"
     }
   },
   "acls": [],

@@ -7,17 +7,17 @@ var whiteListRemoteRouting = ['@find', '@findById'];
 
 module.exports = function (Owner) {
 
-    RemoteRouting(Owner, {
-        only: whiteListRemoteRouting
-    })
+    // RemoteRouting(Owner, {
+    //     only: whiteListRemoteRouting
+    // })
 
     Owner.getContactDetails = function (ownerId, cb) {
         var contactDetails = app.models.ContactDetails;
-        Owner.findById(ownerId, function (err, instances) {
+        Owner.findById(ownerId, function (err, owner) {
             if (err) {
                 cb(err);
             }
-            contactDetails.findById(instances.contactId, function (err, contacts) {
+            contactDetails.findById(owner.contactId, function (err, contacts) {
                 if (err) {
                     cb(err);
                 }

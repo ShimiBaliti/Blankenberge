@@ -22,7 +22,13 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "contactAddress": {
+      "type": "hasOne",
+      "model": "Address",
+      "foreignKey": "contactId"
+    }
+  },
   "acls": [],
   "methods": {}
 }
